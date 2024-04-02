@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>MICELANEA</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;1,100&display=swap');
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .tab {
+    overflow: hidden;
+    background-color: #333;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  }
+  
+  .tab button {
+    background-color: #333;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+    color: rgb(0, 0, 0);
+  }
+  
+  .tab button:hover, .tab button.active {
+    background-color: #555;
+  }
+  
+  .tabcontent {
+    display: none;
+    padding: 6px 12px;
+    background-color: white;
+    border: none;
+    animation: fadeEffect 1s;
+  }
+  
+  @keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+  
+  .sub-tab {
+    margin-top: 12px;
+    overflow: hidden;
+    background-color: #f9f9f9;
+  }
+  
+  .sub-tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 10px 15px;
+    transition: 0.3s;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .sub-tab button:hover, .sub-tab button.active {
+    background-color: #ddd;
+  }
+  
+  .sub-tabcontent {
+    display: none;
+    padding: 6px 12px;
+    background-color: white;
+    border: none;
+    animation: fadeEffect 1s;
+  }
+  
+  .tab, .sub-tab { overflow: hidden; background-color: #f1f1f1; }
+  .tab button, .sub-tab button { background-color: inherit; float: left; border: none; outline: none; cursor: pointer; padding: 14px 16px; transition: 0.3s; }
+  .tab button:hover, .sub-tab button:hover { background-color: #ddd; }
+  .tab button.active, .sub-tab button.active { background-color: #ccc; }
+  .tabcontent, .sub-tabcontent { display: none; padding: 6px 12px; border: 1px solid #ccc; border-top: none; }
+</style>
+</head>
+<body>
+
+<div class="tab">
+  <button class="tablinks" onclick="openTab(event, 'MainTab1')">INICIO</button>
+  <button class="tablinks" onclick="openTab(event, 'MainTab2')">Operadores</button>
+  <button class="tablinks" onclick="openTab(event, 'MainTab3')">Condicionales</button>
+  <button class="tablinks" onclick="openTab(event, 'MainTab4')">Ciclos</button>
+</div>
+
+<div id="MainTab1" class="tabcontent">
+  <h3>MENU</h3>
+  <div class="sub-tab">
+    <button class="sub-tablinks" onclick="openSubTab(event, 'Sub1Tab1')">Presione Aquí</button>
+  </div>
+  <div id="Sub1Tab1" class="sub-tabcontent">
+    <p>Bienvenido a mi espacio de aprendizaje y práctica en JavaScript. Esta "página" web ha sido creada con el fin de exhibir y almacenar ejercicios de JavaScript 
+      que he desarrollado como parte de mi proceso de formación.</p> <BR>
+    <p>El objetivo de esta página es demostrar mi progreso y comprensión de los conceptos fundamentales de JavaScript, así como recibir retroalimentación constructiva que contribuya a mi crecimiento como desarrolladora.
+      Espero que estos ejercicios sirvan como una muestra de mi trabajo y dedicación en el aprendizaje de la programación.</p>    
+  </div>
+</div>
+
+<div id="MainTab2" class="tabcontent">
+    <h3>Operadores</h3>
+    <div class="sub-tab">
+      <button class="sub-tablinks" onclick="openSubTab(event, 'Sub1Tab1.1')">Ejercicio 1</button>
+      <button class="sub-tablinks" onclick="openSubTab(event, 'Sub1Tab1.2')">Ejercicio 2</button>
+      <button class="sub-tablinks" onclick="openSubTab(event, 'Sub1Tab1.3')">Ejercicio 3</button>
+      <button class="sub-tablinks" onclick="openSubTab(event, 'Sub1Tab1.4')">Ejercicio 4</button>
+      <button class="sub-tablinks" onclick="openSubTab(event, 'Sub1Tab1.5')">Ejercicio 5</button>
+      <button class="sub-tablinks" onclick="openSubTab(event, 'Sub1Tab1.6')">Ejercicio 6</button>
+      <button class="sub-tablinks" onclick="openSubTab(event, 'Sub1Tab1.7')">Ejercicio 7</button>
+      <button class="sub-tablinks" onclick="openSubTab(event, 'Sub1Tab1.8')">Ejercicio 8</button>
+    </div>
+    <div id="Sub1Tab1.1" class="sub-tabcontent">
+        <h1>Calculadora de Área de Triángulo</h1>
+        <label for="base">Base (cm):</label>
+        <input type="number" id="base" placeholder="Introduce la base del triángulo">
+        <br>
+        <label for="altura">Altura (cm):</label>
+        <input type="number" id="altura" placeholder="Introduce la altura del triángulo">
+        <br> 
+        <button onclick="mostrarArea()">Calcular Área</button>
+        <p id="resultado"></p>
+    </div>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;1,100&display=swap');
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f7f7f7;
+    text-align: center;
+    padding: 20px;
+  }
+  h1 {
+    color: #333;
+  }
+  .calculadora {
+    background-color: #fff;
+    max-width: 300px;
+    margin: auto;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 10px;
+  }
+  label, button, p {
+    margin: 10px 0;
+  }
+  input {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  button {
+    background-color: #296fdf;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #2876be;
+  }
+  #resultado {
+    color: #000000;
+    font-style: italic;
+  }
+</style>
+ <script>
+      function mostrarArea() {
+      const base = parseFloat(document.getElementById('base').value);
+      const altura = parseFloat(document.getElementById('altura').value);
+      calcularAreaTriangulo(base, altura)
+        .then(area => {
+          document.getElementById('resultado').textContent = `El área del triángulo es: ${area}`;
+        })
+        .catch((error) => {
+          console.error("Se ha producido un error:", error);
+        });
+      }
+    
+     async function calcularAreaTriangulo(base, altura) {
+        return new Promise((resolve, reject) => {
+          if (base > 0 && altura > 0) {
+            const area = (base * altura) / 2;
+            resolve(area);
+          } else {
+            reject('La base y la altura deben ser mayores que cero.');
+          }
+        });
+    }
+</script> 
+
+<div id="Sub1Tab1.2" class="sub-tabcontent">
+  <div class="sumador">
+    <h1>Sumador de Números</h1>
+    <div class="input-group">
+      <label for="nume1">Número 1:</label>
+      <input type="number" id="nume1" placeholder="Ingresa el primer número">
+    </div>
+    
+    <div class="input-group">
+      <label for="nume2">Número 2:</label>
+      <input type="number" id="nume2" placeholder="Ingresa el segundo número">
+    </div>
+    
+    <button onclick="sumarNumeros()">Sumar Números</button>
+    <div id="resu"></div>
+    
+    <script>
+      function sumarNumeros() {
+        const numr1 = Number(document.getElementById('nume1').value);
+        const numr2 = Number(document.getElementById('nume2').value);
+        const suma = num1 + num2;
+        document.getElementById('resu').innerText = 'La suma es: ' + sumaa + '.';
+      }
+      </script>
+</div>
+</div>
+
+<div id="Sub1Tab1.3" class="sub-tabcontent">
+  <h1>Número al Cuadrado</h1>
+  <div class="container">
+    <input type="number" id="numero23" placeholder="Ingresa un número">
+    <button onclick="elevarAlCuadradoAsync()">Elevar al Cuadrado</button>
+    <div id="resultado21"></div>
+  </div>  
+    
+  <script>
+    function calcularCuadrado(numero23) {
+      return new Promise(resolve => {
+        setTimeout(() => {
+          resolve(numero23 * numero23);
+        },); 
+      });
+    }
+
+    async function elevarAlCuadradoAsync() {
+      const numero23 = parseFloat(document.getElementById('numero23').value);
+      
+      if (!isNaN(numero23)) {
+        const cuadrado1 = await calcularCuadrado(numero23);
+        document.getElementById('resultado21').textContent = `Resultado: ${cuadrado1}`;
+      } else {
+        document.getElementById('resultado21').textContent = 'Por favor, ingresa un número válido.';
+      }
+    }
+  </script>
+  </div>
+
+  <div id="Sub1Tab1.4" class="sub-tabcontent">
+    <h1>Conversor de euros</h1>
+  <div class="conversor">
+    <input type="number" id="euros" placeholder="Ingresa la cantidad en Euros">
+    <button onclick="convertirAEuros()">Convertir a Dólares</button>
+    <div id="resultado3"></div>
+  </div>
+
+<script>
+  const tasaDeCambio = 1.08; 
+
+  async function convertirAEuros() {
+    const euros = parseFloat(document.getElementById('euros').value);
+    
+    if (!isNaN(euros)) {
+      const dolares = await convertir(euros);
+      document.getElementById('resultado3').textContent = `${euros} EUR son aproximadamente ${dolares.toFixed(2)} USD`;
+    } else {
+      document.getElementById('resultado3').textContent = 'Por favor, ingresa una cantidad válida.';
+    }
+  }
+  
+  function convertir(euros) {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(euros * tasaDeCambio);
+      },);
+    });
+  }
+</script>
+</div>
+
+<div id="Sub1Tab1.5" class="sub-tabcontent">
+<h1>calculadora</h1>
+<div class="cuadrado-calculadora">
+  <input type="number" id="lado1" placeholder="Ingresa el lado del cuadrado">
+  <button onclick="calcularCuadrado()">Calcular Área y Perímetro</button>
+  <div id="resultado4"></div>
+</div>
+<script>
+  async function calcularCuadrado() {
+  const lado1 = parseFloat(document.getElementById('lado1').value);
+  
+  if (!isNaN(lado1) && lado1 > 0) {
+    const area3 = await calcularArea(lado1);
+    const perimetro3 = await calcularPerimetro(lado1);
+    document.getElementById('resultado4').innerHTML = `Área: ${area3} <br> Perímetro: ${perimetro3}`;
+  } else {
+    document.getElementById('resultado4').textContent = 'Por favor, ingresa un valor válido para el lado del cuadrado.';
+  }
+}
+
+function calcularArea(lado1) {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve(lado1 * lado1);
+    },); 
+  });
+}
+
+function calcularPerimetro(lado1) {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve(lado1 * 4);
+    },); 
+  });
+}
+</script>
+</div>
+
+<div id="Sub1Tab1.6" class="sub-tabcontent">
+  <h1>Cilindro</h1>
+<div class="cilindro-calculadora">
+  <input type="number" id="radio2" placeholder="Ingresa el radio del cilindro">
+  <input type="number" id="altura2" placeholder="Ingresa la altura del cilindro">
+  <button onclick="calcularCilindro()">Calcular Área y Volumen</button>
+  <div id="resultado6"></div>
+</div>
+</div>
+<script>
+  const pi = Math.PI; 
+
+  async function calcularCilindro() {
+    const radio2 = document.getElementById('radio2').value;
+    const altura2 = document.getElementById('altura2').value;
+    
+    if (radio2 === '' || altura2 === '') {
+      document.getElementById('resultado6').textContent = 'Por favor, ingresa valores válidos para el radio y la altura del cilindro.';
+      return;
+    }
+  
+    const radioNum = parseFloat(radio2);
+    const alturaNum = parseFloat(altura2);
+    
+    if (!isNaN(radioNum) && radioNum > 0 && !isNaN(alturaNum) && alturaNum > 0) {
+      const area2 = await calcularArea(radioNum, alturaNum);
+      const volumen0 = await calcularVolumen(radioNum, alturaNum);
+      document.getElementById('resultado6').innerHTML = `Área superficial: ${area2.toFixed(2)} <br> Volumen: ${volumen0.toFixed(2)}`;
+    } 
+  }
+  
+  function calcularArea(radio2, altura2) {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        const areaBase = pi * radio2 * radio2;
+        const areaLateral = 2 * pi * radio2 * altura2;
+        const areaTotal = 2 * areaBase + areaLateral;
+        resolve(areaTotal);
+      }, ); 
+    });
+  }
+  
+  function calcularVolumen(radio2, altura2) {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        const volumen0 = pi * radio2 * radio2 * altura2;
+        resolve(volumen0);
+      }, ); 
+    });
+  }
+</script>
+
+
+<div id="Sub1Tab1.7" class="sub-tabcontent">
+  <h1>circunferencia</h1>
+  <div class="input-group">
+    <label for="radio1">Radio:</label>
+    <input type="number" id="radio1" placeholder="Ingresa el radio">
+  </div>
+  
+  <button onclick="calcularValores()">Calcular Longitud y Área</button>
+  <div id="resultado2"></div>
+  
+  <script>
+  async function calcularValores() {
+    const radio1 = document.getElementById('radio1').value;
+    const resultado2 = await obtenerValores(radio1);
+    document.getElementById('resultado2').innerText = resultado2;
+  }
+  
+  function obtenerValores(radio1) {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        radio1 = Number(radio1);
+        if (!radio1 || radio1 <= 0) {
+          resolve('Por favor, ingresa un valor de radio positivo.');
+        } else {
+          const pi = Math.PI;
+          const longitud1 = 2 * pi * radio1;
+          const area1 = pi * radio1 * radio1;
+          resolve(`La longitud de la circunferencia es: ${longitud1.toFixed(2)} y el área del círculo es: ${area1.toFixed(2)}.`);
+        }
+      }, ); 
+    });
+  }
+</script>
+</div>
+
+<div id="Sub1Tab1.8" class="sub-tabcontent">
+  <h1>PROMEDIO</h1>
+  <div class="input-group">
+    <label for="numer1">Número 1:</label>
+    <input type="number" id="numer1" placeholder="Ingresa el primer número">
+  </div>
+  
+  <div class="input-group">
+    <label for="numer2">Número 2:</label>
+    <input type="number" id="numer2" placeholder="Ingresa el segundo número">
+  </div>
+  
+  <div class="input-group">
+    <label for="numer3">Número 3:</label>
+    <input type="number" id="numer3" placeholder="Ingresa el tercer número">
+  </div>
+  
+  <button onclick="calcularPromedio()">Calcular Promedio</button>
+  <div id="resul"></div>
+  
+  <script>
+  async function calcularPromedio() {
+    const num1 = document.getElementById('numer1').value;
+    const num2 = document.getElementById('numer2').value;
+    const num3 = document.getElementById('numer3').value;
+    const resul = await obtenerPromedio(num1, num2, num3);
+    document.getElementById('resul').innerText = resul;
+  }
+  
+  function obtenerPromedio(num1, num2, num3) {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        num1 = Number(num1);
+        num2 = Number(num2);
+        num3 = Number(num3);
+        if (!num1 || !num2 || !num3) {
+          resolve('Por favor, ingresa tres números válidos.');
+        } else {
+          const promedio = (num1 + num2 + num3) / 3;
+          resolve(`El promedio es: ${promedio.toFixed(2)}.`);
+        }
+      }, );
+    });
+  }
+  </script>
+</div>
+</div>
+<div id="MainTab3" class="tabcontent">
+  <h3>Condicionales</h3>
+  <div class="sub-tab">
+    <button class="sub-tablinks" onclick="openSubTab(event, 'Sub1Tab1.11')">Ejercicio 1</button>
+    <button class="sub-tablinks" onclick="openSubTab(event, 'Sub1Tab1.22')">Ejercicio 2</button>
+    <button class="sub-tablinks" onclick="openSubTab(event, 'Sub1Tab1.33')">Ejercicio 3</button>
+    <button class="sub-tablinks" onclick="openSubTab(event, 'Sub1Tab1.44')">Ejercicio 4</button>
+    <button class="sub-tablinks" onclick="openSubTab(event, 'Sub1Tab1.55')">Ejercicio 5</button>
+    <button class="sub-tablinks" onclick="openSubTab(event, 'Sub1Tab1.66')">Ejercicio 6</button>
+    <button class="sub-tablinks" onclick="openSubTab(event, 'Sub1Tab1.77')">Ejercicio 7</button>
+  </div>
+
+  <div id="Sub1Tab1.11" class="sub-tabcontent">
+    <h1>Número negativo o positivo</h1>
+    <input type="number" id="numeroo" placeholder="Ingresa un número">
+    <button onclick="verificarNumero()">Verificar</button>
+    <div id="resultado11"></div>
+</div>
+<script>
+  async function verificarNumero() {
+    const numeroo = document.getElementById('numeroo').value;
+    const resultado11 = await determinarSigno(numeroo);
+    document.getElementById('resultado11').innerText = resultado11;
+  }
+  
+  function determinarSigno(numeroo) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (numeroo > 0) {
+          resolve('El número es positivo.');
+        } else if (numeroo< 0) {
+          resolve('El número es negativo.');
+        } 
+      }, ); 
+    });
+  }
+  </script>
+
+  <div id="Sub1Tab1.22" class="sub-tabcontent">
+    <h1>Número mayor y Menor</h1>
+    <div class="input-group">
+      <label for="numero.1">Número 1:</label>
+      <input type="number" id="numero.1" placeholder="Ingresa el primer número">
+    </div>
+    
+    <div class="input-group">
+      <label for="numero.2">Número 2:</label>
+      <input type="number" id="numero.2" placeholder="Ingresa el segundo número">
+    </div>
+    
+    <button onclick="compararNumeros()">Comparar</button>
+    <div id="resultado35"></div>
+    
+    <script>
+    function compararNumeros() {
+      const num1 = document.getElementById('numero.1').value;
+      const num2 = document.getElementById('numero.2').value;
+      let resultado35;
+    
+      if (Number(num1) > Number(num2)) {
+        resultado35 = 'El mayor es ' + num1 + ' y el menor es ' + num2 + '';
+      } else {
+        resultado35 = 'El mayor es ' + num2 + ' y el menor es ' + num1 + '';
+      }
+    
+      document.getElementById('resultado35').innerText = resultado35;
+    }
+    </script>
+  </div>
+    <div id="Sub1Tab1.33" class="sub-tabcontent">
+      <h1>3 Números; Mayor y Menor</h1>
+    <div class="input-group">
+      <label for="numeroo1">Número 1:</label>
+      <input type="number" id="numeroo1" placeholder="Ingresa un número entero positivo">
+    </div>
+    
+    <div class="input-group">
+      <label for="numeroo2">Número 2:</label>
+      <input type="number" id="numeroo2" placeholder="Ingresa un número entero positivo">
+    </div>
+    
+    <div class="input-group">
+      <label for="numeroo3">Número 3:</label>
+      <input type="number" id="numeroo3" placeholder="Ingresa un número entero positivo">
+    </div>
+    
+    <button onclick="encontrarMenorMayor()">Encontrar Menor y Mayor</button>
+    <div id="resultado0"></div>
+    
+    <script>
+    function encontrarMenorMayor() {
+      const num1 = Number(document.getElementById('numeroo1').value);
+      const num2 = Number(document.getElementById('numeroo2').value);
+      const num3 = Number(document.getElementById('numeroo3').value);
+    
+    
+      let menor = Math.min(num1, num2, num3);
+      let mayor = Math.max(num1, num2, num3);
+    
+      document.getElementById('resultado0').innerText = 'El menor número es: ' + menor + ' y el mayor número es: ' + mayor + '.';
+    }
+    </script>
+    </div>
+
+    <div id="Sub1Tab1.44" class="sub-tabcontent">
+      <h1>Suma O Resta</h1>
+      <div class="input-group">
+        <label for="numeroA">Número A:</label>
+        <input type="number" id="numeroA" placeholder="Ingresa el número A">
+      </div>
+      
+      <div class="input-group">
+        <label for="numeroB">Número B:</label>
+        <input type="number" id="numeroB" placeholder="Ingresa el número B">
+      </div>
+      
+      <button onclick="calcularResultado()">Calcular</button>
+      <div id="resultado00"></div>
+      
+      <script>
+      async function calcularResultado() {
+        const numA = document.getElementById('numeroA').value;
+        const numB = document.getElementById('numeroB').value;
+        const resultado = await sumarORestar(numA, numB);
+        document.getElementById('resultado00').innerText = resultado;
+      }
+      
+      function sumarORestar(numA, numB) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            let resultado00;
+            if (Number(numA) < Number(numB)) {
+              resultado00 = `La suma es: ${Number(numA) + Number(numB)}.`;
+            } else {
+              resultado00 = `La resta es: ${Number(numA) - Number(numB)}.`;
+            }
+            resolve(resultado00);
+          },); 
+        });
+      }
+      </script>
+    </div>
+
+      <div id="Sub1Tab1.55" class="sub-tabcontent">
+        <h1>Cociente entre A y B</h1>
+      <div class="input-group">
+        <label for="numeroAA">Número A:</label>
+        <input type="number" id="numeroAA" placeholder="Ingresa el número A">
+      </div>
+      
+      <div class="input-group">
+        <label for="numeroBB">Número B:</label>
+        <input type="number" id="numeroBB" placeholder="Ingresa el número B">
+      </div>
+      
+      <button onclick="calcularCociente()">Calcular Cociente</button>
+      <div id="resultado69"></div>
+      
+      <script>
+        function calcularCociente() {
+          const numeroAA = document.getElementById('numeroAA').value;
+          const numeroBB = document.getElementById('numeroBB').value;
+        
+          if (numeroBB == 0) {
+            document.getElementById('resultado69').innerText = 'La división por cero no es posible.';
+          } else {
+            const cociente = Number(numeroAA) / Number(numeroBB);
+            document.getElementById('resultado69').innerText = 'El cociente es: ' + cociente + '.';
+          }
+        }
+        </script>
+    </div>
+
+      <div id="Sub1Tab1.66" class="sub-tabcontent">
+        <h1>Suma O Multiplicación</h1>
+        <div class="input-group">
+          <label for="numeroAAA">Número A:</label>
+          <input type="number" id="numeroAAA" placeholder="Ingresa el número A">
+        </div>
+        <div class="input-group">
+          <label for="numeroBBB">Número B:</label>
+          <input type="number" id="numeroBBB" placeholder="Ingresa el número B">
+        </div>
+        <button onclick="operarNumeros()">Operar Números</button>
+        <div id="resultado15"></div>
+        
+        <script>
+        function operarNumeros() {
+          const numAAA = Number(document.getElementById('numeroAAA').value);
+          const numBBB = Number(document.getElementById('numeroBBB').value);
+          let resultado;
+          if (numAAA < 0 || numBBB < 0) {
+            resultado15 = 'La suma es: ' + (numAAA + numBBB) + '.';
+          } else {
+            resultado15 = 'La multiplicación es: ' + (numAAA * numBBB) + '.';
+          }
+          document.getElementById('resultado15').innerText = resultado15;
+        }
+        </script>
+      </div>
+
+        <div id="Sub1Tab1.77" class="sub-tabcontent">
+          <h1>Determinar si es un año bisiesto o no</h1>
+          <div class="input-group">
+            <label for="year">Año:</label>
+            <input type="number" id="year" placeholder="Ingresa un año">
+          </div>
+          <button onclick="esBisiesto()">Verificar Año Bisiesto</button>
+          <div id="resultado78"></div>
+          
+          <script>
+          function esBisiesto() {
+            const year = document.getElementById('year').value;
+            let resultado78;
+          
+            if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+              resultado78 = 'El año ' + year + ' es bisiesto.';
+            } else {
+              resultado78 = 'El año ' + year + ' no es bisiesto.';
+            }
+          
+            document.getElementById('resultado78').innerText = resultado78;
+          }
+          </script>
+        </div>
+</div>
+
+
+    
+
+<div id="MainTab4" class="tabcontent">
+  <h3>CICLOS</h3>
+  <div class="sub-tab">
+    <button class="sub-tablinks" onclick="openSubTab(event, 'Sub1Tab1.111')">Ejercicio 1</button>
+    <button class="sub-tablinks" onclick="openSubTab(event, 'Sub1Tab1.222')">Ejercicio 2</button>
+    <button class="sub-tablinks" onclick="openSubTab(event, 'Sub1Tab1.333')">Ejercicio 3</button>
+    <button class="sub-tablinks" onclick="openSubTab(event, 'Sub1Tab1.444')">Ejercicio 4</button>
+    <button class="sub-tablinks" onclick="openSubTab(event, 'Sub1Tab1.555')">Ejercicio 5</button>
+    <button class="sub-tablinks" onclick="openSubTab(event, 'Sub1Tab1.666')">Ejercicio 6</button>
+    <button class="sub-tablinks" onclick="openSubTab(event, 'Sub1Tab1.777')">Ejercicio 7</button>
+
+  </div>
+  <div id="Sub1Tab1.111" class="sub-tabcontent">
+    <h1>múltiplos de 3 entre 1 y 100.</h1>
+    <div id="multiples-container"></div>
+    <h1>FA</h1>
+    <script>
+    async function printMultiplesOfThree() {
+      const container = document.getElementById('multiples-container');
+      for (let i = 1; i <= 100; i++) {
+        if (i % 3 === 0) {
+          const div = document.createElement('div');
+          div.classList.add('multiple');
+          div.textContent = `Múltiplo de 3 = : ${i}`;
+          container.appendChild(div);
+          await new Promise(resolve => setTimeout(resolve, ));
+        }
+      }
+    }
+    printMultiplesOfThree();
+    </script>
+  </div> 
+
+  <div id="Sub1Tab1.222" class="sub-tabcontent">
+    <div id="odds-container"></div>
+    <h1>números impares entre 0 y 100.</h1>
+
+    <script>
+      async function printOddNumbers() {
+        const container = document.getElementById('odds-container');
+        for (let i = 0; i <= 100; i++) {
+          if (i % 2 !== 0) {
+            const div = document.createElement('div');
+            div.classList.add('odd-number');
+            div.textContent = `Número impar: ${i}`;
+            container.appendChild(div);
+            await new Promise(resolve => setTimeout(resolve, 50));
+          }
+        }
+      }
+      printOddNumbers();
+    </script>
+ </div> 
+
+<div id="Sub1Tab1.333" class="sub-tabcontent">
+  <h1>números pares del 1 al 100.</h1>
+<div id="evens-container"></div>
+
+    <script>
+    async function printEvenNumbers() {
+      const container = document.getElementById('evens-container');
+      for (let i = 1; i <= 100; i++) {
+        if (i % 2 === 0) {
+          const div = document.createElement('div');
+          div.classList.add('even-number');
+          div.textContent = `Número par: ${i}`;
+          container.appendChild(div);
+          await new Promise(resolve => setTimeout(resolve, 50));
+        }
+      }
+    }
+    printEvenNumbers();
+    </script>
+</div>
+
+<div id="Sub1Tab1.444" class="sub-tabcontent">
+<h1>cuadrados de los números del 1 al 30</h1>
+<div id="squares-container"></div>
+
+<script>
+function printSquareNumbers() {
+  const container = document.getElementById('squares-container');
+  for (let i = 1; i <= 30; i++) {
+    const div = document.createElement('div');
+    div.classList.add('square-number');
+    div.textContent = `Cuadrado de ${i}: ${i * i}`;
+    container.appendChild(div);
+  }
+}
+printSquareNumbers();
+</script>
+</div>
+
+<div id="Sub1Tab1.555" class="sub-tabcontent">
+<h1>suma los cuadrados de los cien primeros números naturales</h1>
+<div id="result"></div>
+
+<script>
+async function sumSquareNumbers() {
+  let sum = 0;
+  for (let i = 1; i <= 100; i++) {
+    sum += i * i;
+    await new Promise(resolve => setTimeout(resolve, 10));
+  }
+  document.getElementById('result').textContent = `La suma de los cuadrados de los primeros 100 números naturales es: ${sum}`;
+}
+sumSquareNumbers();
+</script>
+</div>
+
+<div id="Sub1Tab1.666" class="sub-tabcontent">
+<h1>Secuencia de Números naturales</h1>
+<input type="number" id="startNumber" placeholder="Número inicial">
+<input type="number" id="endNumber" placeholder="Número final">
+<button onclick="getUserInputAndPrint()">Generar Secuencia</button>
+<div id="sequence-container"></div>
+
+<script>
+async function printNumbersInRange(start, end) {
+  const container = document.getElementById('sequence-container');
+  container.innerHTML = ''; 
+  if(start >= end) {
+    container.textContent = 'El primer número debe ser menor que el segundo.';
+    return;
+  }
+  for (let i = start; i <= end; i++) {
+    const div = document.createElement('div');
+    div.classList.add('number');
+    div.textContent = i;
+    container.appendChild(div);
+    await new Promise(resolve => setTimeout(resolve, 30)); 
+  }
+}
+function getUserInputAndPrint() {
+  const startNumber = parseInt(document.getElementById('startNumber').value, 10);
+  const endNumber = parseInt(document.getElementById('endNumber').value, 10);
+  printNumbersInRange(startNumber, endNumber);
+}
+</script>
+</div>
+
+<div id="Sub1Tab1.777" class="sub-tabcontent">
+  <h1>Suma De Números Mientras no sea 0</h1>
+  <div id="app">
+    <input type="number" id="numberInput" placeholder="Ingresa un número" autofocus />
+    <button onclick="sumarNumeros()">Sumar</button>
+    <p id="sumResult">Suma: 0</p>
+  </div>
+  
+  <script>
+    let suma0 = 0;
+    function sumarNumeros() {
+      const numero5 = parseInt(document.getElementById('numberInput').value);
+      if (numero5 !== 0) {
+        suma0 += numero5;
+        document.getElementById('sumResult').textContent = 'Suma: ' + suma0;
+      } else {
+        alert('La suma total es: ' + suma0);
+        suma0 = 0; 
+      }
+      document.getElementById('numberInput').value = ''; 
+      document.getElementById('numberInput').focus(); 
+    }
+  </script>
+</div>
+
+<!--Script de Diseño-->
+<script>
+function openTab(evt, tabName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+function openSubTab(evt, subTabName) {
+  var i, subTabcontent, subTablinks;
+  subTabcontent = document.getElementsByClassName("sub-tabcontent");
+  for (i = 0; i < subTabcontent.length; i++) {
+    subTabcontent[i].style.display = "none";
+  }
+  subTablinks = document.getElementsByClassName("sub-tablinks");
+  for (i = 0; i < subTablinks.length; i++) {
+    subTablinks[i].className = subTablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(subTabName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
+</body>
+</html>
